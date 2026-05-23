@@ -33,7 +33,10 @@
       "node_modules/**/*"
     ],
     "win": {
-      "target": ["nsis", "portable"]
+      "target": [
+        "nsis",
+        "portable"
+      ]
     },
     "nsis": {
       "oneClick": false,
@@ -53,12 +56,15 @@
   "license": "MIT",
   "dependencies": {
     "chess.js": "^1.0.0-beta.8",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.15.0",
+    "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.1",
+    "tailwind-merge": "^3.6.0",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
@@ -71,6 +77,7 @@
     "concurrently": "^9.2.1",
     "electron": "^42.1.0",
     "electron-builder": "^26.8.1",
+    "playwright": "^1.60.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.0",
