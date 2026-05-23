@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-dashboard/
+release/
+logs/
+matches/
+traces/
+*.js.map
+*.d.ts
+.env
+window-state.json
+.DS_Store
+Thumbs.db

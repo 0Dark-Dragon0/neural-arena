@@ -1,0 +1,84 @@
+{
+  "name": "neural-arena",
+  "version": "1.0.0-alpha.1",
+  "description": "Deterministic autonomous cognition observatory and benchmarking platform",
+  "homepage": "https://github.com/neural-arena/neural-arena",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neural-arena/neural-arena.git"
+  },
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "dashboard:dev": "vite --config dashboard.vite.config.ts",
+    "dashboard:build": "vite build --config dashboard.vite.config.ts",
+    "dashboard:preview": "vite preview --config dashboard.vite.config.ts",
+    "electron:dev": "concurrently \"npm run dashboard:dev\" \"ts-node src/index.ts\"",
+    "electron:start": "electron .",
+    "build:release": "npm run build && npm run dashboard:build",
+    "electron:package": "npm run build:release && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.neuralarena.app",
+    "productName": "Neural Arena",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-dashboard/**/*",
+      "electron-main.js",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico"
+    }
+  },
+  "keywords": [
+    "autonomous-systems",
+    "ai-benchmarking",
+    "cognition-observatory",
+    "multi-agent",
+    "orchestration",
+    "deterministic-simulation",
+    "replay",
+    "observability"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.0",
+    "socket.io-client": "^4.8.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@tanstack/react-virtual": "^3.11.2",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.1",
+    "electron": "^42.1.0",
+    "electron-builder": "^26.8.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.3.0",
+    "vite": "^6.0.7"
+  }
+}
